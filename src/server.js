@@ -1,11 +1,11 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import { db } from './db/index.js';
-import { routes } from './routes/index.js';
+import { db } from './db';
+import { routes } from './routes';
 
 const app = express();
 
-app.use(bodyParser.json());
+app.use(express.json());
 
 routes.forEach((route) => {
   app[route.method](route.path, route.handler);
